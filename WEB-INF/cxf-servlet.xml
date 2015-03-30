@@ -28,7 +28,7 @@
 		id="banka" 
 		address="/Banka"
 		implementor="rs.ac.uns.ftn.xws.cbs.banka.BankaImpl"
-		wsdlLocation="WEB-INF/wsdl/Banka.wsdl"/>
+		wsdlLocation="WEB-INF/xml/Banka.wsdl"/>
 
 
 </beans>

@@ -1,7 +1,7 @@
 
 package rs.ac.uns.ftn.xws.cbs.zahtev_za_izvod;
 
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -23,9 +23,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence>
  *         &lt;element name="broj_racuna" type="{http://www.ftn.uns.ac.rs/xws/cbs/tipovi}TRacun"/>
  *         &lt;element name="datum" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         &lt;element name="redni_broj_preseka">
+ *         &lt;element name="redni_broj_preseka" form="qualified">
  *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}positiveInteger">
  *               &lt;totalDigits value="2"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
@@ -53,7 +53,7 @@ public class ZahtevZaIzvod {
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datum;
     @XmlElement(name = "redni_broj_preseka", required = true)
-    protected BigDecimal redniBrojPreseka;
+    protected BigInteger redniBrojPreseka;
 
     /**
      * Gets the value of the brojRacuna property.
@@ -108,10 +108,10 @@ public class ZahtevZaIzvod {
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public BigDecimal getRedniBrojPreseka() {
+    public BigInteger getRedniBrojPreseka() {
         return redniBrojPreseka;
     }
 
@@ -120,10 +120,10 @@ public class ZahtevZaIzvod {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public void setRedniBrojPreseka(BigDecimal value) {
+    public void setRedniBrojPreseka(BigInteger value) {
         this.redniBrojPreseka = value;
     }
 

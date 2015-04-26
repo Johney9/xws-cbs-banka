@@ -2,6 +2,7 @@
 package rs.ac.uns.ftn.xws.cbs.izvod;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -24,7 +25,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="datum_naloga" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *         &lt;element name="broj_preseka">
  *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}positiveInteger">
  *               &lt;totalDigits value="2"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
@@ -32,7 +33,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="prethodno_stanje" type="{http://www.ftn.uns.ac.rs/xws/cbs/tipovi}TIznos"/>
  *         &lt;element name="broj_promena_u_korist">
  *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger">
  *               &lt;totalDigits value="6"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
@@ -40,7 +41,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="ukupno_u_korist" type="{http://www.ftn.uns.ac.rs/xws/cbs/tipovi}TIznos"/>
  *         &lt;element name="broj_promena_na_teret">
  *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger">
  *               &lt;totalDigits value="6"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
@@ -75,15 +76,15 @@ public class IzvodZaglavlje {
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumNaloga;
     @XmlElement(name = "broj_preseka", required = true)
-    protected BigDecimal brojPreseka;
+    protected BigInteger brojPreseka;
     @XmlElement(name = "prethodno_stanje", required = true)
     protected BigDecimal prethodnoStanje;
     @XmlElement(name = "broj_promena_u_korist", required = true)
-    protected BigDecimal brojPromenaUKorist;
+    protected BigInteger brojPromenaUKorist;
     @XmlElement(name = "ukupno_u_korist", required = true)
     protected BigDecimal ukupnoUKorist;
     @XmlElement(name = "broj_promena_na_teret", required = true)
-    protected BigDecimal brojPromenaNaTeret;
+    protected BigInteger brojPromenaNaTeret;
     @XmlElement(name = "ukupno_na_teret", required = true)
     protected BigDecimal ukupnoNaTeret;
     @XmlElement(name = "novo_stanje", required = true)
@@ -142,10 +143,10 @@ public class IzvodZaglavlje {
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public BigDecimal getBrojPreseka() {
+    public BigInteger getBrojPreseka() {
         return brojPreseka;
     }
 
@@ -154,10 +155,10 @@ public class IzvodZaglavlje {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public void setBrojPreseka(BigDecimal value) {
+    public void setBrojPreseka(BigInteger value) {
         this.brojPreseka = value;
     }
 
@@ -190,10 +191,10 @@ public class IzvodZaglavlje {
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public BigDecimal getBrojPromenaUKorist() {
+    public BigInteger getBrojPromenaUKorist() {
         return brojPromenaUKorist;
     }
 
@@ -202,10 +203,10 @@ public class IzvodZaglavlje {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public void setBrojPromenaUKorist(BigDecimal value) {
+    public void setBrojPromenaUKorist(BigInteger value) {
         this.brojPromenaUKorist = value;
     }
 
@@ -238,10 +239,10 @@ public class IzvodZaglavlje {
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public BigDecimal getBrojPromenaNaTeret() {
+    public BigInteger getBrojPromenaNaTeret() {
         return brojPromenaNaTeret;
     }
 
@@ -250,10 +251,10 @@ public class IzvodZaglavlje {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public void setBrojPromenaNaTeret(BigDecimal value) {
+    public void setBrojPromenaNaTeret(BigInteger value) {
         this.brojPromenaNaTeret = value;
     }
 

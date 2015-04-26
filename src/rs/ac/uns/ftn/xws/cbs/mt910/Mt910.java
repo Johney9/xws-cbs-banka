@@ -22,8 +22,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id_poruke" type="{http://www.ftn.uns.ac.rs/xws/cbs/tipovi}TID"/>
- *         &lt;element name="swift_kod_banke_duznika" type="{http://www.ftn.uns.ac.rs/xws/cbs/tipovi}TSWIFT"/>
- *         &lt;element name="obracunski_racun_banke_duznika">
+ *         &lt;element name="swift_kod_banke_poverioca" type="{http://www.ftn.uns.ac.rs/xws/cbs/tipovi}TSWIFT"/>
+ *         &lt;element name="obracunski_racun_banke_poverioca">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;maxLength value="20"/>
@@ -46,8 +46,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idPoruke",
-    "swiftKodBankeDuznika",
-    "obracunskiRacunBankeDuznika",
+    "swiftKodBankePoverioca",
+    "obracunskiRacunBankePoverioca",
     "idPorukeNaloga",
     "datumValute",
     "iznos",
@@ -58,10 +58,10 @@ public class Mt910 {
 
     @XmlElement(name = "id_poruke", required = true)
     protected String idPoruke;
-    @XmlElement(name = "swift_kod_banke_duznika", required = true)
-    protected String swiftKodBankeDuznika;
-    @XmlElement(name = "obracunski_racun_banke_duznika", required = true)
-    protected String obracunskiRacunBankeDuznika;
+    @XmlElement(name = "swift_kod_banke_poverioca", required = true)
+    protected String swiftKodBankePoverioca;
+    @XmlElement(name = "obracunski_racun_banke_poverioca", required = true)
+    protected String obracunskiRacunBankePoverioca;
     @XmlElement(name = "id_poruke_naloga", required = true)
     protected String idPorukeNaloga;
     @XmlElement(name = "datum_valute", required = true)
@@ -97,51 +97,51 @@ public class Mt910 {
     }
 
     /**
-     * Gets the value of the swiftKodBankeDuznika property.
+     * Gets the value of the swiftKodBankePoverioca property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSwiftKodBankeDuznika() {
-        return swiftKodBankeDuznika;
+    public String getSwiftKodBankePoverioca() {
+        return swiftKodBankePoverioca;
     }
 
     /**
-     * Sets the value of the swiftKodBankeDuznika property.
+     * Sets the value of the swiftKodBankePoverioca property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSwiftKodBankeDuznika(String value) {
-        this.swiftKodBankeDuznika = value;
+    public void setSwiftKodBankePoverioca(String value) {
+        this.swiftKodBankePoverioca = value;
     }
 
     /**
-     * Gets the value of the obracunskiRacunBankeDuznika property.
+     * Gets the value of the obracunskiRacunBankePoverioca property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getObracunskiRacunBankeDuznika() {
-        return obracunskiRacunBankeDuznika;
+    public String getObracunskiRacunBankePoverioca() {
+        return obracunskiRacunBankePoverioca;
     }
 
     /**
-     * Sets the value of the obracunskiRacunBankeDuznika property.
+     * Sets the value of the obracunskiRacunBankePoverioca property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setObracunskiRacunBankeDuznika(String value) {
-        this.obracunskiRacunBankeDuznika = value;
+    public void setObracunskiRacunBankePoverioca(String value) {
+        this.obracunskiRacunBankePoverioca = value;
     }
 
     /**

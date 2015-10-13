@@ -26,9 +26,9 @@
 
 	<jaxws:endpoint 
 		id="banka" 
-		address="/Banka"
-		implementor="rs.ac.uns.ftn.xws.cbs.banka.BankaImpl"
-		wsdlLocation="WEB-INF/xml/Banka.wsdl"/>
+		address="/XWSBanka"
+		implementor="rs.ac.uns.ftn.xws.cbs.banka.XWSBankaImpl"
+		wsdlLocation="WEB-INF/xml/XWSBanka.wsdl"/>
 
 
 </beans>

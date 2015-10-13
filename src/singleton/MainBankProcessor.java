@@ -20,6 +20,7 @@ import rs.ac.uns.ftn.xws.cbs.nalog_za_placanje.NalogZaPlacanje;
 import rs.ac.uns.ftn.xws.cbs.zahtev_za_izvod.ZahtevZaIzvod;
 import util.PropertiesLoader;
 import utility.MtCoupler;
+import delegators.CentralBankDelegator;
 
 public class MainBankProcessor {
 
@@ -32,6 +33,11 @@ public class MainBankProcessor {
 	private MainBankProcessor() {
 		state = new BankState();
 		processor = new XWSDataProcessor(state);
+		try {
+			state.initialSetup(properties);
+		} catch (Exception e) {
+			throw new RuntimeException("Unable to initialise bank: "+properties.getProperty("war.name")+" in database.");
+		}
 	}
 
 	private static class SingletonHolder {
@@ -44,13 +50,13 @@ public class MainBankProcessor {
 
 	public Object process(Mt102 mt102) throws JAXBException, IOException,
 			SAXException, Exception {
-		// TODO Auto-generated method stub
+
 		return processor.process(mt102);
 	}
 
 	public Object process(Mt103 mt103) throws JAXBException, IOException,
 			SAXException, Exception {
-		// TODO Auto-generated method stub
+		
 		return processor.process(mt103);
 	}
 
@@ -75,15 +81,28 @@ public class MainBankProcessor {
 	public Object process(NalogZaPlacanje nalog) throws JAXBException,
 			IOException, SAXException, Exception {
 		// TODO Auto-generated method stub
-		return processor.process(nalog);
+		Object processed = processor.process(nalog);
+		if(processed instanceof Mt103) {
+			
+			Mt103 mt103 = (Mt103) processed;
+			CentralBankDelegator.sendMt103(mt103);
+			return mt103;
+			
+		} else
+			if(processed instanceof Mt102) {
+				
+				Mt102 mt102 = (Mt102) processed;
+				CentralBankDelegator.sendMt102(mt102);
+				return mt102;
+			}
+		
+		return null;
 	}
-
+	
 	public Object process(ZahtevZaIzvod zahtev) throws JAXBException,
 			IOException, SAXException, Exception {
-		// TODO Auto-generated method stub
+		
 		return processor.process(zahtev);
 	}
-	
-	
 
 }
